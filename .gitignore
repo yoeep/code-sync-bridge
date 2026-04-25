@@ -47,6 +47,9 @@ temp/
 .temp/
 
 # Config files (may contain sensitive data)
+config.json
+config/config.json
+packages/*/config/config.json
 config/local.json
 config/production.json
 
