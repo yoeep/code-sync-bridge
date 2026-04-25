@@ -73,6 +73,15 @@ The VS Code extension is built from `packages/vscode-extension`.
 
 Standalone Windows executables can also be built for the two CLI clients. See [Executable packaging](docs/EXECUTABLES.md).
 
+## Releases
+
+Prebuilt Windows release assets are published on GitHub Releases for tagged versions. Download the current CLI binaries from:
+
+- `intranet-client.exe`
+- `extranet-client.exe`
+
+Release page: [GitHub Releases](https://github.com/yoeep/code-sync-bridge/releases)
+
 ## Development Workflow
 
 1. Install dependencies with `npm install`.
