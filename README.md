@@ -36,7 +36,7 @@ The project is especially aimed at isolated network environments where auditabil
 
 - Node.js 18 or later
 - npm 9 or later
-- Windows is the primary CI target today; Linux and macOS should work for core packages
+- Windows is the primary validation target today; Linux and macOS should work for core packages
 
 ## Quick Start
 
@@ -97,7 +97,7 @@ Release page: [GitHub Releases](https://github.com/yoeep/code-sync-bridge/releas
 - Workspace packages should consume shared modules via package entry points or documented subpath exports
 - Local CLI config is stored outside the repo or under an explicit config path, not in source folders
 
-## CI Expectations
+## Validation Expectations
 
 The repository-level validation target is:
 
@@ -112,7 +112,7 @@ npm test
 
 - Keep logs, caches, extracted repositories, and transfer sessions out of the source tree.
 - Prefer imports from package entry points such as `@code-sync-bridge/shared`.
-- Avoid committing generated `dist` output unless a release workflow explicitly requires it.
+- Avoid committing generated `dist` output unless a manual release process explicitly requires it.
 
 ## Documentation
 

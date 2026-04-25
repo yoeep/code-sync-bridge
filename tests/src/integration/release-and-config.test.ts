@@ -104,13 +104,12 @@ describe('release and repository contract tests', () => {
     expect(vscodeManifest?.dependencies?.['@code-sync-bridge/extranet-client']).toBe(`^${expectedVersion}`);
   });
 
-  it('release workflow exists and validates before uploading artifacts', async () => {
-    const workflow = await fs.readFile(path.join(repoRoot, '.github/workflows/release.yml'), 'utf8');
+  it('release documentation describes the manual validation and packaging flow', async () => {
+    const releaseDoc = await fs.readFile(path.join(repoRoot, 'docs/RELEASE.md'), 'utf8');
 
-    expect(workflow).toContain("tags:");
-    expect(workflow).toContain("- 'v*'");
-    expect(workflow).toContain('npm run release:check');
-    expect(workflow).toContain('npm run release:prepare');
-    expect(workflow).toContain('softprops/action-gh-release');
+    expect(releaseDoc).toContain('manual release flow');
+    expect(releaseDoc).toContain('npm run release:check');
+    expect(releaseDoc).toContain('npm run release:prepare');
+    expect(releaseDoc).toContain('npm run package:exe');
   });
 });

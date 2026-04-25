@@ -54,6 +54,6 @@ The deployment surface is now materially cleaner than the original repository st
 
 The remaining work before a public release is mostly polish:
 
-- automate tag and release publication if desired
+- use a manual tag and release publication flow if desired
 - expand end-to-end demo material if required
 - continue improving operator examples as real deployments provide feedback

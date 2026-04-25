@@ -6,7 +6,7 @@ Each release should be reproducible, validated, and documented.
 
 ## Tag Convention
 
-The repository release workflow is designed around Git tags in the form:
+The repository release process uses Git tags in the form:
 
 ```text
 v<version>
@@ -53,19 +53,18 @@ npm run release:check
 7. Build any release artifacts required by the package being shipped.
 8. Tag and publish according to the repository's chosen versioning policy.
 
-## Automation
+## Manual Release Flow
 
-GitHub Actions now includes a release workflow that runs on `v*` tags.
+This repository currently uses a manual release flow instead of GitHub Actions automation.
 
-Current automated steps:
+Recommended release steps:
 
-- install dependencies
-- run `npm run release:check`
-- run `npm run release:prepare`
-- package the VS Code extension
-- create a GitHub Release and upload the `.vsix` artifact
-
-This is intentionally conservative. It establishes an automated release path without yet publishing npm packages.
+- `npm ci`
+- `npm run release:check`
+- `npm run release:prepare`
+- `npm run package --workspace=packages/vscode-extension`
+- `npm run package:exe`
+- create or edit the GitHub Release manually and upload the generated assets
 
 ## Versioning
 

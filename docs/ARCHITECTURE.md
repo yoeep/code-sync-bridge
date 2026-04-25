@@ -70,4 +70,4 @@ The next design goal is to continue tightening boundaries without changing user-
 - keep `shared` export surfaces intentional
 - keep CLI entry points thin
 - keep runtime state out of the repository
-- keep cross-package validation green in CI
+- keep cross-package validation green in local validation
