@@ -1,0 +1,3 @@
+Place a non-sensitive example QR image here if you want to demonstrate QR-based dynamic-token authentication.
+
+Do not commit real production QR codes or authentication materials to the repository.
