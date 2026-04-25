@@ -1,0 +1,125 @@
+{
+  "name": "@code-sync-bridge/shared",
+  "version": "1.0.0",
+  "description": "Shared runtime, SFTP, transfer, security, and configuration modules.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/code-sync-bridge/code-sync-bridge.git",
+    "directory": "packages/shared"
+  },
+  "homepage": "https://github.com/code-sync-bridge/code-sync-bridge/tree/main/packages/shared",
+  "bugs": {
+    "url": "https://github.com/code-sync-bridge/code-sync-bridge/issues"
+  },
+  "keywords": [
+    "sftp",
+    "sync",
+    "shared",
+    "typescript",
+    "code-sync"
+  ],
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./types": {
+      "types": "./dist/types/index.d.ts",
+      "default": "./dist/types/index.js"
+    },
+    "./interfaces": {
+      "types": "./dist/interfaces/index.d.ts",
+      "default": "./dist/interfaces/index.js"
+    },
+    "./config": {
+      "types": "./dist/config/index.d.ts",
+      "default": "./dist/config/index.js"
+    },
+    "./runtime": {
+      "types": "./dist/runtime/index.d.ts",
+      "default": "./dist/runtime/index.js"
+    },
+    "./utils": {
+      "types": "./dist/utils/index.d.ts",
+      "default": "./dist/utils/index.js"
+    },
+    "./utils/paths": {
+      "types": "./dist/utils/paths.d.ts",
+      "default": "./dist/utils/paths.js"
+    },
+    "./utils/Logger": {
+      "types": "./dist/utils/Logger.d.ts",
+      "default": "./dist/utils/Logger.js"
+    },
+    "./sftp": {
+      "types": "./dist/sftp/index.d.ts",
+      "default": "./dist/sftp/index.js"
+    },
+    "./network/NetworkErrorHandler": {
+      "types": "./dist/network/NetworkErrorHandler.d.ts",
+      "default": "./dist/network/NetworkErrorHandler.js"
+    },
+    "./network/NetworkMonitor": {
+      "types": "./dist/network/NetworkMonitor.d.ts",
+      "default": "./dist/network/NetworkMonitor.js"
+    },
+    "./cache/LocalCacheManager": {
+      "types": "./dist/cache/LocalCacheManager.d.ts",
+      "default": "./dist/cache/LocalCacheManager.js"
+    },
+    "./security/FileIntegrityChecker": {
+      "types": "./dist/security/FileIntegrityChecker.d.ts",
+      "default": "./dist/security/FileIntegrityChecker.js"
+    },
+    "./security/TransferEncryption": {
+      "types": "./dist/security/TransferEncryption.d.ts",
+      "default": "./dist/security/TransferEncryption.js"
+    },
+    "./transfer/ResumableTransfer": {
+      "types": "./dist/transfer/ResumableTransfer.d.ts",
+      "default": "./dist/transfer/ResumableTransfer.js"
+    },
+    "./conflict/ConflictResolver": {
+      "types": "./dist/conflict/ConflictResolver.d.ts",
+      "default": "./dist/conflict/ConflictResolver.js"
+    },
+    "./conflict/ConflictNotificationManager": {
+      "types": "./dist/conflict/ConflictNotificationManager.d.ts",
+      "default": "./dist/conflict/ConflictNotificationManager.js"
+    },
+    "./performance/PerformanceMonitor": {
+      "types": "./dist/performance/PerformanceMonitor.d.ts",
+      "default": "./dist/performance/PerformanceMonitor.js"
+    },
+    "./performance/LargeFileHandler": {
+      "types": "./dist/performance/LargeFileHandler.d.ts",
+      "default": "./dist/performance/LargeFileHandler.js"
+    },
+    "./performance/MemoryOptimizer": {
+      "types": "./dist/performance/MemoryOptimizer.d.ts",
+      "default": "./dist/performance/MemoryOptimizer.js"
+    },
+    "./performance/PerformanceManager": {
+      "types": "./dist/performance/PerformanceManager.d.ts",
+      "default": "./dist/performance/PerformanceManager.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "clean": "node ../../scripts/clean-paths.js dist"
+  },
+  "dependencies": {
+    "jimp": "^1.6.0",
+    "jsqr": "^1.4.0",
+    "node-cron": "^3.0.3",
+    "otplib": "^12.0.1",
+    "ssh2": "^1.15.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  }
+}

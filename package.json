@@ -1,0 +1,67 @@
+{
+  "name": "code-sync-bridge-lite",
+  "version": "1.0.0",
+  "description": "TypeScript monorepo for synchronizing code streams between isolated environments over SFTP.",
+  "private": true,
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/code-sync-bridge/code-sync-bridge.git"
+  },
+  "homepage": "https://github.com/code-sync-bridge/code-sync-bridge#readme",
+  "bugs": {
+    "url": "https://github.com/code-sync-bridge/code-sync-bridge/issues"
+  },
+  "keywords": [
+    "sftp",
+    "sync",
+    "monorepo",
+    "typescript",
+    "code-sync"
+  ],
+  "workspaces": [
+    "packages/*",
+    "tests"
+  ],
+  "scripts": {
+    "build": "npm run build --workspaces",
+    "build:lite": "tsc --build packages/shared/tsconfig.json packages/intranet-client/tsconfig.json packages/extranet-client/tsconfig.json packages/vscode-extension/tsconfig.json",
+    "dev": "npm run dev --workspaces",
+    "test": "npm run test:integration",
+    "test:integration": "npm run test --workspace=tests",
+    "test:integration:coverage": "npm run test:coverage --workspace=tests",
+    "lint": "eslint packages/*/src/**/*.ts",
+    "clean": "node scripts/clean-paths.js packages/shared/dist packages/intranet-client/dist packages/extranet-client/dist packages/vscode-extension/dist tests/coverage",
+    "package:exe": "node scripts/package-executables.js",
+    "install:lite": "npm install --ignore-scripts --no-optional",
+    "release:check": "node scripts/release-check.js && npm run lint && npm run build:lite && npm test",
+    "release:prepare": "node scripts/prepare-release.js",
+    "version:patch": "node scripts/bump-version.js patch",
+    "version:minor": "node scripts/bump-version.js minor",
+    "version:major": "node scripts/bump-version.js major"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "eslint": "^8.0.0",
+    "nexe": "^5.0.0-beta.4",
+    "typescript": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "optionalDependencies": {
+    "jimp": "^1.6.0",
+    "jsqr": "^1.4.0",
+    "keytar": "^7.9.0",
+    "qrcode": "^1.5.0",
+    "screenshot-desktop": "^1.12.0",
+    "ssh2": "^1.15.0"
+  },
+  "dependencies": {
+    "commander": "^14.0.1",
+    "otplib": "^12.0.1",
+    "vsce": "1.97.0"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "types": ["jest", "node"],
+    "baseUrl": ".",
+    "paths": {
+      "@code-sync-bridge/shared": [
+        "../packages/shared/src"
+      ],
+      "@code-sync-bridge/shared/config": [
+        "../packages/shared/src/config"
+      ],
+      "@code-sync-bridge/shared/runtime": [
+        "../packages/shared/src/runtime"
+      ],
+      "@code-sync-bridge/shared/sftp": [
+        "../packages/shared/src/sftp"
+      ]
+    }
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "coverage"
+  ]
+}

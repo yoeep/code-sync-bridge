@@ -1,0 +1,37 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "composite": true,
+    "baseUrl": ".",
+    "paths": {
+      "@code-sync-bridge/shared": [
+        "../shared/src"
+      ],
+      "@code-sync-bridge/shared/types": [
+        "../shared/src/types"
+      ],
+      "@code-sync-bridge/shared/interfaces": [
+        "../shared/src/interfaces"
+      ],
+      "@code-sync-bridge/shared/config": [
+        "../shared/src/config"
+      ],
+      "@code-sync-bridge/shared/runtime": [
+        "../shared/src/runtime"
+      ],
+      "@code-sync-bridge/shared/utils/Logger": [
+        "../shared/src/utils/Logger"
+      ],
+      "@code-sync-bridge/shared/sftp": [
+        "../shared/src/sftp"
+      ]
+    }
+  },
+  "include": ["src/**/*"],
+  "exclude": ["dist", "**/*.test.ts"],
+  "references": [
+    { "path": "../shared" }
+  ]
+}

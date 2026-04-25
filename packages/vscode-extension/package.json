@@ -1,0 +1,157 @@
+{
+  "name": "code-sync-bridge-vscode",
+  "displayName": "Code Sync Bridge",
+  "description": "VS Code extension for browsing streams and triggering sync workflows.",
+  "version": "1.0.0",
+  "publisher": "code-sync-bridge",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/code-sync-bridge/code-sync-bridge.git",
+    "directory": "packages/vscode-extension"
+  },
+  "homepage": "https://github.com/code-sync-bridge/code-sync-bridge/tree/main/packages/vscode-extension",
+  "bugs": {
+    "url": "https://github.com/code-sync-bridge/code-sync-bridge/issues"
+  },
+  "keywords": [
+    "vscode",
+    "sftp",
+    "sync",
+    "extension",
+    "code-sync"
+  ],
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:codeSyncBridge.refreshStreams",
+    "onView:codeSyncBridge.streamExplorer"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "codeSyncBridge.refreshStreams",
+        "title": "Refresh Streams",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "codeSyncBridge.pullStream",
+        "title": "Pull Stream",
+        "icon": "$(cloud-download)"
+      },
+      {
+        "command": "codeSyncBridge.commitChanges",
+        "title": "Commit Changes",
+        "icon": "$(cloud-upload)"
+      },
+      {
+        "command": "codeSyncBridge.openSettings",
+        "title": "Open Settings",
+        "icon": "$(settings-gear)"
+      },
+      {
+        "command": "codeSyncBridge.openManagementPanel",
+        "title": "Open Management Panel",
+        "icon": "$(window)"
+      }
+    ],
+    "views": {
+      "explorer": [
+        {
+          "id": "codeSyncBridge.streamExplorer",
+          "name": "Code Streams",
+          "when": "codeSyncBridge.enabled"
+        }
+      ]
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "codeSyncBridge.refreshStreams",
+          "when": "view == codeSyncBridge.streamExplorer",
+          "group": "navigation"
+        },
+        {
+          "command": "codeSyncBridge.openSettings",
+          "when": "view == codeSyncBridge.streamExplorer",
+          "group": "navigation"
+        },
+        {
+          "command": "codeSyncBridge.openManagementPanel",
+          "when": "view == codeSyncBridge.streamExplorer",
+          "group": "navigation"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "codeSyncBridge.pullStream",
+          "when": "view == codeSyncBridge.streamExplorer && viewItem == codeStream",
+          "group": "inline"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "codeSyncBridge.commitChanges",
+          "when": "codeSyncBridge.hasChanges"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Code Sync Bridge",
+      "properties": {
+        "codeSyncBridge.sftpHost": {
+          "type": "string",
+          "default": "",
+          "description": "SFTP server host"
+        },
+        "codeSyncBridge.sftpPort": {
+          "type": "number",
+          "default": 22,
+          "description": "SFTP server port"
+        },
+        "codeSyncBridge.sftpUsername": {
+          "type": "string",
+          "default": "",
+          "description": "SFTP username"
+        },
+        "codeSyncBridge.autoCommit": {
+          "type": "boolean",
+          "default": false,
+          "description": "Enable automatic commit flow"
+        },
+        "codeSyncBridge.monitorInterval": {
+          "type": "number",
+          "default": 300,
+          "description": "Polling interval in seconds"
+        },
+        "codeSyncBridge.showAutoCommitNotifications": {
+          "type": "boolean",
+          "default": false,
+          "description": "Show auto-commit notifications"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "build": "tsc -p ./",
+    "dev": "tsc -watch -p ./",
+    "clean": "node ../../scripts/clean-paths.js dist",
+    "package": "vsce package",
+    "vscode:prepublish": "npm run build"
+  },
+  "dependencies": {
+    "@code-sync-bridge/extranet-client": "^1.0.0",
+    "@code-sync-bridge/shared": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/vscode": "^1.74.0",
+    "typescript": "^5.0.0",
+    "vsce": "^1.97.0"
+  }
+}

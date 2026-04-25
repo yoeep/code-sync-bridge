@@ -1,0 +1,41 @@
+{
+  "sftp": {
+    "host": "your-sftp-server.com",
+    "port": 22,
+    "username": "your-username",
+    "authMethod": "dynamic-token",
+    "timeout": 30000,
+    "retryAttempts": 3,
+    "_comment_auth_methods": "支持的认证方式: key, password, dynamic-token",
+    "_comment_dynamic_token_options": {
+      "控制台输入": "无需额外配置，运行时提示输入",
+      "环境变量": "设置 SFTP_DYNAMIC_TOKEN 环境变量",
+      "文件读取": "添加 tokenFilePath 配置项",
+      "HTTP_API": "添加 tokenApiUrl 和 tokenApiHeaders 配置项",
+      "预设验证码": "添加 password 配置项（仅测试用）"
+    }
+  },
+  "sync": {
+    "monitorInterval": 300,
+    "maxFileSize": "100MB",
+    "excludePatterns": [
+      "*.log",
+      "*.tmp", 
+      "node_modules/",
+      ".git/",
+      "dist/",
+      "build/",
+      "coverage/"
+    ]
+  },
+  "security": {
+    "encryptionEnabled": true,
+    "checksumValidation": true,
+    "maxConcurrentStreams": 10
+  },
+  "logging": {
+    "level": "info",
+    "console": true,
+    "filePath": "./logs/code-sync-bridge.log"
+  }
+}

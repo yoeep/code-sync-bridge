@@ -1,0 +1,43 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "lib": ["ES2022"],
+    "outDir": "./dist",
+    "rootDir": "./",
+    "baseUrl": ".",
+    "paths": {
+      "@code-sync-bridge/shared": [
+        "packages/shared/src"
+      ],
+      "@code-sync-bridge/intranet-client": [
+        "packages/intranet-client/src"
+      ],
+      "@code-sync-bridge/extranet-client": [
+        "packages/extranet-client/src"
+      ]
+    },
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "composite": true,
+    "incremental": true,
+    "resolveJsonModule": true
+  },
+  "references": [
+    { "path": "./packages/shared" },
+    { "path": "./packages/intranet-client" },
+    { "path": "./packages/extranet-client" },
+    { "path": "./packages/vscode-extension" }
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "**/*.test.ts"
+  ]
+}
