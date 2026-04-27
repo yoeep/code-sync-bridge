@@ -6,7 +6,16 @@
 import { Client } from 'ssh2';
 import * as fs from 'fs';
 import * as path from 'path';
-import * as posixPath from 'path/posix';
+
+/**
+ * 跨平台兼容的 POSIX 路径工具
+ */
+const posixPath = {
+    join: (...paths: string[]) => paths.join('/').replace(/\\/g, '/'),
+    dirname: (p: string) => p.substring(0, p.lastIndexOf('/')),
+    basename: (p: string) => p.substring(p.lastIndexOf('/') + 1),
+    normalize: (p: string) => p.replace(/\\/g, '/').replace(/\/+/g, '/')
+};
 import { QRCodeDynamicTokenProvider } from './DynamicTokenProvider';
 import { log } from '../utils/Logger';
 export interface ProgressInfo {

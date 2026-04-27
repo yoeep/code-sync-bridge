@@ -1,0 +1,15 @@
+{
+  "host": "your-sftp-server.example.com",
+  "port": 22,
+  "username": "sync-user",
+  "password": "",
+  "authMethod": "dynamic-token",
+  "timeout": 30000,
+  "retries": 3,
+  "retryDelay": 2000,
+  "basePath": "/",
+  "dynamicToken": {
+    "source": "prompt",
+    "prompt": "Enter dynamic token: "
+  }
+}

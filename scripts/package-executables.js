@@ -17,6 +17,11 @@ const targets = [
     entry: path.join('scripts', 'pkg-extranet-entry.js'),
     output: path.join('artifacts', 'exe', 'extranet-client.exe'),
   },
+  {
+    name: 'sftp-bridge',
+    entry: path.join('scripts', 'pkg-sftp-bridge-entry.js'),
+    output: path.join('artifacts', 'exe', 'sftp-bridge.exe'),
+  },
 ];
 
 function run(command, args) {

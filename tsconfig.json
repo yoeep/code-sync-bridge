@@ -11,6 +11,9 @@
       "@code-sync-bridge/shared": [
         "packages/shared/src"
       ],
+      "@code-sync-bridge/sftp-bridge": [
+        "packages/sftp-bridge/src"
+      ],
       "@code-sync-bridge/intranet-client": [
         "packages/intranet-client/src"
       ],
@@ -31,6 +34,7 @@
   },
   "references": [
     { "path": "./packages/shared" },
+    { "path": "./packages/sftp-bridge" },
     { "path": "./packages/intranet-client" },
     { "path": "./packages/extranet-client" },
     { "path": "./packages/vscode-extension" }

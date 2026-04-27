@@ -1,0 +1,41 @@
+{
+  "name": "@code-sync-bridge/sftp-bridge",
+  "version": "1.0.0",
+  "description": "Minimal CLI for interactive SFTP upload and download across isolated networks.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/code-sync-bridge/code-sync-bridge.git",
+    "directory": "packages/sftp-bridge"
+  },
+  "homepage": "https://github.com/code-sync-bridge/code-sync-bridge/tree/main/packages/sftp-bridge",
+  "bugs": {
+    "url": "https://github.com/code-sync-bridge/code-sync-bridge/issues"
+  },
+  "keywords": [
+    "sftp",
+    "cli",
+    "transfer",
+    "dynamic-token",
+    "bridge"
+  ],
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "sftp-bridge": "dist/bin/sftp-bridge.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "clean": "node ../../scripts/clean-paths.js dist"
+  },
+  "dependencies": {
+    "@code-sync-bridge/shared": "^1.0.0",
+    "ssh2": "^1.15.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/ssh2": "^1.11.0",
+    "typescript": "^5.0.0"
+  }
+}
